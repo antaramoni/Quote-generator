@@ -24,7 +24,7 @@ function complete() {
 async function getQuote() {
   loading();
 
-  const proxyURL = "https://cors-anywhere.herokuapp.com/";
+  const proxyURL = "https://radiant-hollows-94569.herokuapp.com/";
   const apiURL =
     "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
 
