@@ -6,13 +6,13 @@ const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
 
 // Show Loading
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
 // Hide Loading
-function complete() {
+function removeLoadingSpinner() {
   if (!loader.hidden) {
     quoteContainer.hidden = false;
     loader.hidden = true;
@@ -22,7 +22,7 @@ function complete() {
 // Get quote from API
 
 async function getQuote() {
-  loading();
+  showLoadingSpinner();
 
   const proxyURL = "https://radiant-hollows-94569.herokuapp.com/";
   const apiURL =
@@ -48,7 +48,7 @@ async function getQuote() {
     quoteText.innerText = data.quoteText;
 
     // stop loader and show the quote
-    complete();
+    removeLoadingSpinner();
   } catch (error) {
     getQuote();
     console.log("Opps! no quote found! ", error);
